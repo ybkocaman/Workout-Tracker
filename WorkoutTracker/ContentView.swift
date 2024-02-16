@@ -8,15 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+//    @StateObject private var viewModel = WorkoutsViewModel()
+    @EnvironmentObject var viewModel: WorkoutsViewModel
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            WorkoutsListView()
+                .environmentObject(viewModel)
+                .navigationTitle("Workout Tracker")
+                .toolbar { 
+                    Button("Add Workout", systemImage: "plus") {
+                        withAnimation {
+                            viewModel.addWorkout()
+                        }
+                    }
+                }
         }
-        .padding()
     }
+    
 }
 
 #Preview {
