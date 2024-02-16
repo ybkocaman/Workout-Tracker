@@ -22,12 +22,4 @@ struct Exercise: Codable, Identifiable, Hashable {
     var reps: Int = 10
     var difficulty: Difficulty = .normal
     
-//    init(id: UUID = UUID(), name: String = "", weight: Int? = nil, sets: Int = 3, reps: Int = 10, difficulty: Difficulty = .normal) {
-//        self.id = id
-//        self.name = name
-//        self.weight = weight
-//        self.sets = sets
-//        self.reps = reps
-//        self.difficulty = difficulty
-//    }
 }

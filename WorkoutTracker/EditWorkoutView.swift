@@ -72,13 +72,3 @@ struct EditWorkoutView: View {
         DataManager.shared.saveWorkout(workout)
     }
 }
-
-//#Preview {
-//    let sampleWorkout = Workout(id: UUID(), date: Date.now, exercises: [
-//        Exercise(id: UUID(), name: "Sample Exercise", weight: nil, sets: 3, reps: 5, difficulty: .hard),
-//        Exercise(id: UUID(), name: "Sample Exercise", weight: nil, sets: 3, reps: 5, difficulty: .easy),
-//        Exercise(id: UUID(), name: "Sample Exercise", weight: nil, sets: 3, reps: 5, difficulty: .unsuccessful),
-//        Exercise(id: UUID(), name: "Sample Exercise", weight: nil, sets: 3, reps: 5, difficulty: .normal)
-//    ] )
-//    return EditWorkoutView(workout: .constant(sampleWorkout))
-//}

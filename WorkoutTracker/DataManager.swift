@@ -26,11 +26,6 @@ class DataManager: ObservableObject {
     func saveWorkouts(_ workouts: [Workout]) {
         do {
             let data = try JSONEncoder().encode(workouts)
-//            if FileManager.default.fileExists(atPath: archiveURL.path) {
-//                try FileManager.default.removeItem(at: archiveURL)
-//                print("Data has been deleted successfully to initialize from scratch.")
-//            }
-
             try data.write(to: archiveURL, options: [.atomic, .completeFileProtection])
             print("Workouts data has been saved successfully.")
         } catch {
