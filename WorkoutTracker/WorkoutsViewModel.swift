@@ -30,6 +30,7 @@ class WorkoutsViewModel: ObservableObject {
         let newWorkout = Workout()
         workouts.append(newWorkout)
         saveWorkouts()
+        loadWorkouts()
     }
     
     func saveWorkout(_ workout: Workout) {
