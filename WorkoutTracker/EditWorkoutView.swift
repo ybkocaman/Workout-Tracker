@@ -22,8 +22,7 @@ struct EditWorkoutView: View {
                         .font(.headline.bold())
                 }
                 ScrollView {
-                    DatePicker("Date of workout", selection: $workout.date,in: ...Date(), displayedComponents: .date)
-                        .padding()
+                    datePickerView
                     ForEach($workout.exercises.indices, id: \.self) { index in
                         ExerciseView(
                             exercise: $workout.exercises[index],
@@ -43,12 +42,6 @@ struct EditWorkoutView: View {
                 DataManager.shared.saveWorkout(workout)
             }
             .toolbar {
-                Button("Remove workout", systemImage: "trash") {
-                    withAnimation {
-                        viewModel.deleteWorkout(workout)
-                        dismiss()
-                    }
-                }
                 Button("Add exercise", systemImage: "plus") {
                     withAnimation {
                         addExercise()
@@ -71,4 +64,19 @@ struct EditWorkoutView: View {
         workout.exercises.append(newExercise)
         DataManager.shared.saveWorkout(workout)
     }
+    
+    private var datePickerView: some View {
+        DatePicker("Date of workout", selection: $workout.date, in: ...Date(), displayedComponents: .date)
+            .foregroundStyle(.black)
+            .font(.headline.bold())
+            .padding(10)
+            .background(.orange.opacity(0.9))
+            .clipShape(.rect(cornerRadius: 10))
+            .overlay{
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(.black, lineWidth: 4)
+            }
+            .padding()
+    }
+                                
 }

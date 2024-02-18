@@ -136,8 +136,6 @@ struct ExerciseView: View {
     
 }
 
-
-
 #Preview {
     let sampleExercise = Exercise(id: UUID(), name: "Sample Exercise", weight: nil, sets: 3, reps: 8, difficulty: .easy)
     return ExerciseView(exercise: .constant(sampleExercise))

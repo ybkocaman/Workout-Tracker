@@ -9,13 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: WorkoutsViewModel
+    @State private var isDeleting = false
 
     var body: some View {
         NavigationStack {
-            WorkoutsListView()
+            WorkoutsListView(isDeleting: $isDeleting)
                 .environmentObject(viewModel)
                 .navigationTitle("Workout Tracker")
                 .toolbar { 
+                    Button("Delete a workout", systemImage: isDeleting ? "trash.slash" : "trash") {
+                        isDeleting.toggle()
+                    }
                     Button("Add Workout", systemImage: "plus") {
                         withAnimation {
                             viewModel.addWorkout()

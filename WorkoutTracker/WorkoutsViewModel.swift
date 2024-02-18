@@ -21,8 +21,8 @@ class WorkoutsViewModel: ObservableObject {
         DataManager.shared.saveWorkouts(workouts)
     }
     
-    func deleteWorkout(_ workout: Workout) {
-        DataManager.shared.deleteWorkout(workout)
+    func deleteWorkout(at index: Int) {
+        DataManager.shared.deleteWorkout(workouts[index])
         loadWorkouts()
     }
     
